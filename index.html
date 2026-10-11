@@ -16,7 +16,7 @@
 @font-face{font-family:'Roboto';src:url('Roboto-Regular.ttf') format('truetype');font-weight:400;font-style:normal}
 @font-face{font-family:'Roboto';src:url('Roboto-Medium.ttf') format('truetype');font-weight:500;font-style:normal}
 
-html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#000;-webkit-user-select:none;user-select:none; cursor:pointer}
+html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#000;-webkit-user-select:none;user-select:none;cursor:pointer}
 #bg{position:absolute;left:0;top:0;width:100%;height:100%;background-color:#111;background-size:cover;background-position:center;background-repeat:no-repeat}
 #wrap{position:absolute;left:0;right:0;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);text-align:center;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.5)}
 .face{display:none}
@@ -24,40 +24,31 @@ html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#000;-webkit
 .t,.d{white-space:nowrap}
 .s{font-size:0.25em;opacity:.7;vertical-align:top}
 
-/* Face 1: bold Inter, date below */
 #f1 .t{font-family:Inter;font-weight:600;font-size:22vw;line-height:1}
 #f1 .d{font-family:Inter;font-weight:500;font-size:3.4vw;margin-top:1.5vw}
 
-/* Face 2: thin Roboto, spaced uppercase date */
 #f2 .t{font-family:Roboto;font-weight:300;font-size:24vw;line-height:1}
 #f2 .d{font-family:Roboto;font-weight:400;font-size:2.6vw;letter-spacing:.2em;text-transform:uppercase;margin-top:1.5vw}
 
-/* Face 3: Geist medium */
 #f3 .t{font-family:Geist;font-weight:500;font-size:20vw;line-height:1}
 #f3 .d{font-family:Geist;font-weight:400;font-size:3.4vw;margin-top:1.5vw}
 
-/* Face 4: stacked Roboto, hours over minutes */
-#f4 .t{font-family:Roboto;font-weight:500;font-size:26vw;line-height:.88}
+#f4 .t{font-family:Roboto;font-weight:500;font-size:26vw;line-height:1}
 #f4 .d{font-family:Roboto;font-weight:400;font-size:3.4vw;margin-top:2vw}
 
-/* Face 5: wide-spaced Inter regular */
 #f5 .t{font-family:Inter;font-weight:400;font-size:18vw;line-height:1;letter-spacing:.04em}
 #f5 .d{font-family:Inter;font-weight:400;font-size:3.4vw;margin-top:1.5vw}
 
-/* Face 6: date above, Geist semibold time */
 #f6 .d{font-family:Geist;font-weight:600;font-size:4vw;margin-bottom:1vw}
 #f6 .t{font-family:Geist;font-weight:600;font-size:20vw;line-height:1}
 
-/* Face 7: Roboto regular with small seconds */
 #f7 .t{font-family:Roboto;font-weight:400;font-size:20vw;line-height:1}
 #f7 .d{font-family:Roboto;font-weight:300;font-size:3vw;margin-top:1.5vw}
 
-/* Face 8: left-aligned Inter medium */
 #f8{text-align:left;padding-left:8vw}
 #f8 .t{font-family:Inter;font-weight:500;font-size:20vw;line-height:1}
 #f8 .d{font-family:Inter;font-weight:400;font-size:3.4vw;margin-top:1.5vw}
 
-/* Self-test panel */
 #test{display:none;position:absolute;left:0;top:0;width:100%;height:100%;background:#000;color:#fff;font-family:Helvetica,Arial,sans-serif;font-size:18px;line-height:1.6;padding:20px;box-sizing:border-box;overflow:auto;text-shadow:none}
 </style>
 </head>
@@ -81,7 +72,7 @@ var MONS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec
 var KEY='clockOverride';
 var bg=document.getElementById('bg');
 var testBox=document.getElementById('test');
-var lastPhoto=1;
+var lastPhoto=0;
 var taps=0, tapTimer=null;
 
 function pad(n){return n<10?'0'+n:''+n;}
@@ -99,16 +90,15 @@ function setOverride(v){
   try{ localStorage.setItem(KEY,v); }catch(e){}
 }
 
-// Works out which photo and face to show right now
 function current(now){
-  var slot=Math.floor(now.getHours()/3);          // 0-7, one per 3 hours
+  var slot=Math.floor(now.getHours()/3);
   var doy=dayOfYear(now);
   var slotKey=now.toDateString()+'|'+slot;
-  var photo=(slot+doy*3)%8+1;                      // daily shuffle of photos
-  var face=(slot+doy*5)%8+1;                       // daily shuffle of faces
+  var photo=(slot+doy*3)%8+1;
+  var face=(slot+doy*5)%8+1;
   var o=null;
   try{ o=JSON.parse(getOverride()); }catch(e){}
-  if(o && o.k===slotKey){ face=o.f; }             // tap override lasts this slot only
+  if(o && o.k===slotKey){ face=o.f; }
   return {face:face, photo:photo, key:slotKey};
 }
 
@@ -119,7 +109,6 @@ function update(){
   var ds=DAYS[now.getDay()]+' '+pad(now.getDate())+' '+MONS[now.getMonth()];
 
   var timeHTML=hh+':'+mm;
-  if(c.face===4){ timeHTML=hh+'<br>'+mm; }
   if(c.face===7){ timeHTML=hh+':'+mm+'<span class="s">'+ss+'</span>'; }
 
   for(var i=1;i<=8;i++){
@@ -133,13 +122,12 @@ function update(){
     }
   }
 
-  if(c.photo!==lastPhoto || bg.style.backgroundImage===''){
+  if(c.photo!==lastPhoto){
     bg.style.backgroundImage="url('Photo"+c.photo+".jpg')";
     lastPhoto=c.photo;
   }
 }
 
-// Tap: 5 taps in the top-left corner opens the self-test; any other tap changes face
 document.addEventListener('click', function(e){
   if(testBox.style.display==='block'){
     testBox.style.display='none';
@@ -158,7 +146,6 @@ document.addEventListener('click', function(e){
   update();
 }, false);
 
-// Font check: compares rendered width with a plain fallback
 function fontLoaded(fam,w){
   var s=document.createElement('span');
   s.style.cssText='position:absolute;left:-9999px;top:0;font-size:72px;white-space:nowrap';
