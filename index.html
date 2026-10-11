@@ -1,0 +1,546 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;!DOCTYPE html&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;html&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;head&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;meta charset=&quot;utf-8&quot;&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;meta name=&quot;viewport&quot;
+content=&quot;width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no&quot;&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;meta
+name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;title&gt;Clock&lt;/title&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;style&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>@font-face{font-family:'Inter';src:url('Inter-Regular.ttf')
+format('truetype');font-weight:400;font-style:normal}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>@font-face{font-family:'Inter';src:url('Inter-Medium.ttf')
+format('truetype');font-weight:500;font-style:normal}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>@font-face{font-family:'Inter';src:url('Inter-SemiBold.ttf')
+format('truetype');font-weight:600;font-style:normal}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>@font-face{font-family:'Geist';src:url('Geist-Regular.ttf')
+format('truetype');font-weight:400;font-style:normal}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>@font-face{font-family:'Geist';src:url('Geist-Medium.ttf')
+format('truetype');font-weight:500;font-style:normal}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>@font-face{font-family:'Geist';src:url('Geist-SemiBold.ttf')
+format('truetype');font-weight:600;font-style:normal}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>@font-face{font-family:'Roboto';src:url('Roboto-Light.ttf')
+format('truetype');font-weight:300;font-style:normal}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>@font-face{font-family:'Roboto';src:url('Roboto-Regular.ttf')
+format('truetype');font-weight:400;font-style:normal}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>@font-face{font-family:'Roboto';src:url('Roboto-Medium.ttf')
+format('truetype');font-weight:500;font-style:normal}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#000;-webkit-user-select:none;user-select:none}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#bg{position:absolute;left:0;top:0;width:100%;height:100%;background-color:#111;background-size:cover;background-position:center;background-repeat:no-repeat}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#wrap{position:absolute;left:0;right:0;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);text-align:center;color:#fff;text-shadow:0
+2px 14px rgba(0,0,0,.5)}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>.face{display:none}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>.face.on{display:block}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>.t,.d{white-space:nowrap}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>.s{font-size:0.25em;opacity:.7;vertical-align:top}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>/* Face 1: bold Inter, date below */</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f1
+.t{font-family:Inter;font-weight:600;font-size:22vw;line-height:1}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f1
+.d{font-family:Inter;font-weight:500;font-size:3.4vw;margin-top:1.5vw}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>/* Face 2: thin Roboto, spaced uppercase
+date */</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f2
+.t{font-family:Roboto;font-weight:300;font-size:24vw;line-height:1}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f2
+.d{font-family:Roboto;font-weight:400;font-size:2.6vw;letter-spacing:.2em;text-transform:uppercase;margin-top:1.5vw}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>/* Face 3: Geist medium */</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f3
+.t{font-family:Geist;font-weight:500;font-size:20vw;line-height:1}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f3
+.d{font-family:Geist;font-weight:400;font-size:3.4vw;margin-top:1.5vw}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>/* Face 4: stacked Roboto, hours over
+minutes */</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f4
+.t{font-family:Roboto;font-weight:500;font-size:26vw;line-height:.88}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f4
+.d{font-family:Roboto;font-weight:400;font-size:3.4vw;margin-top:2vw}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>/* Face 5: wide-spaced Inter regular */</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f5
+.t{font-family:Inter;font-weight:400;font-size:18vw;line-height:1;letter-spacing:.04em}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f5
+.d{font-family:Inter;font-weight:400;font-size:3.4vw;margin-top:1.5vw}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>/* Face 6: date above, Geist semibold time
+*/</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f6
+.d{font-family:Geist;font-weight:600;font-size:4vw;margin-bottom:1vw}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f6
+.t{font-family:Geist;font-weight:600;font-size:20vw;line-height:1}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>/* Face 7: Roboto regular with small
+seconds */</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f7
+.t{font-family:Roboto;font-weight:400;font-size:20vw;line-height:1}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f7
+.d{font-family:Roboto;font-weight:300;font-size:3vw;margin-top:1.5vw}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>/* Face 8: left-aligned Inter medium */</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f8{text-align:left;padding-left:8vw}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f8
+.t{font-family:Inter;font-weight:500;font-size:20vw;line-height:1}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#f8
+.d{font-family:Inter;font-weight:400;font-size:3.4vw;margin-top:1.5vw}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>/* Self-test panel */</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>#test{display:none;position:absolute;left:0;top:0;width:100%;height:100%;background:#000;color:#fff;font-family:Helvetica,Arial,sans-serif;font-size:18px;line-height:1.6;padding:20px;box-sizing:border-box;overflow:auto;text-shadow:none}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;/style&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;/head&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;body&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;div id=&quot;bg&quot;&gt;&lt;/div&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;div id=&quot;wrap&quot;&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  &lt;div class=&quot;face&quot;
+id=&quot;f1&quot;&gt;&lt;div class=&quot;t&quot;&gt;&lt;/div&gt;&lt;div
+class=&quot;d&quot;&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  &lt;div class=&quot;face&quot;
+id=&quot;f2&quot;&gt;&lt;div class=&quot;t&quot;&gt;&lt;/div&gt;&lt;div
+class=&quot;d&quot;&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  &lt;div class=&quot;face&quot;
+id=&quot;f3&quot;&gt;&lt;div class=&quot;t&quot;&gt;&lt;/div&gt;&lt;div
+class=&quot;d&quot;&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  &lt;div class=&quot;face&quot;
+id=&quot;f4&quot;&gt;&lt;div class=&quot;t&quot;&gt;&lt;/div&gt;&lt;div
+class=&quot;d&quot;&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  &lt;div class=&quot;face&quot;
+id=&quot;f5&quot;&gt;&lt;div class=&quot;t&quot;&gt;&lt;/div&gt;&lt;div
+class=&quot;d&quot;&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  &lt;div class=&quot;face&quot;
+id=&quot;f6&quot;&gt;&lt;div class=&quot;d&quot;&gt;&lt;/div&gt;&lt;div
+class=&quot;t&quot;&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  &lt;div class=&quot;face&quot;
+id=&quot;f7&quot;&gt;&lt;div class=&quot;t&quot;&gt;&lt;/div&gt;&lt;div
+class=&quot;d&quot;&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  &lt;div class=&quot;face&quot;
+id=&quot;f8&quot;&gt;&lt;div class=&quot;t&quot;&gt;&lt;/div&gt;&lt;div
+class=&quot;d&quot;&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;/div&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;div id=&quot;test&quot;&gt;&lt;/div&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;script&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>var
+DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>var
+MONS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>var KEY='clockOverride';</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>var bg=document.getElementById('bg');</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>var
+testBox=document.getElementById('test');</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>var lastPhoto=1;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>var taps=0, tapTimer=null;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>function pad(n){return n&lt;10?'0'+n:''+n;}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>function dayOfYear(d){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var start=new Date(d.getFullYear(),0,1);</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var today=new
+Date(d.getFullYear(),d.getMonth(),d.getDate());</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  return
+Math.round((today-start)/86400000);</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>function getOverride(){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  try{ return
+localStorage.getItem(KEY)||''; }catch(e){ return ''; }</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>function setOverride(v){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  try{ localStorage.setItem(KEY,v);
+}catch(e){}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>// Works out which photo and face to show
+right now</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>function current(now){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var
+slot=Math.floor(now.getHours()/3);          // 0-7, one per 3 hours</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var doy=dayOfYear(now);</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var slotKey=now.toDateString()+'|'+slot;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var
+photo=(slot+doy*3)%8+1;                      // daily shuffle of photos</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var
+face=(slot+doy*5)%8+1;                       // daily shuffle of faces</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var o=null;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  try{ o=JSON.parse(getOverride());
+}catch(e){}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  if(o &amp;&amp; o.k===slotKey){ face=o.f;
+}             // tap override lasts this slot only</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  return {face:face, photo:photo,
+key:slotKey};</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>function update(){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var now=new Date();</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var c=current(now);</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var hh=pad(now.getHours()),
+mm=pad(now.getMinutes()), ss=pad(now.getSeconds());</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var ds=DAYS[now.getDay()]+'
+'+pad(now.getDate())+' '+MONS[now.getMonth()];</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var timeHTML=hh+':'+mm;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  if(c.face===4){
+timeHTML=hh+'&lt;br&gt;'+mm; }</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  if(c.face===7){
+timeHTML=hh+':'+mm+'&lt;span class=&quot;s&quot;&gt;'+ss+'&lt;/span&gt;'; }</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  for(var i=1;i&lt;=8;i++){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    var el=document.getElementById('f'+i);</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    if(i===c.face){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>      el.className='face on';</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>     
+el.getElementsByClassName('t')[0].innerHTML=timeHTML;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>     
+el.getElementsByClassName('d')[0].innerHTML=ds;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    }else{</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>      el.className='face';</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    }</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  }</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  if(c.photo!==lastPhoto ||
+bg.style.backgroundImage===''){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>   
+bg.style.backgroundImage=&quot;url('Photo&quot;+c.photo+&quot;.jpg')&quot;;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    lastPhoto=c.photo;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  }</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>// Tap: 5 taps in the top-left corner opens
+the self-test; any other tap changes face</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>document.addEventListener('click',
+function(e){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  if(testBox.style.display==='block'){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    testBox.style.display='none';</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    return;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  }</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  if(e.clientX&lt;120 &amp;&amp;
+e.clientY&lt;120){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    taps++;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    clearTimeout(tapTimer);</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    tapTimer=setTimeout(function(){ taps=0;
+},2000);</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    if(taps&gt;=5){ taps=0; runTest(); }</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    return;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  }</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var c=current(new Date());</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var next=c.face%8+1;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB> 
+setOverride(JSON.stringify({k:c.key,f:next}));</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  update();</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>}, false);</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>// Font check: compares rendered width with
+a plain fallback</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>function fontLoaded(fam,w){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var s=document.createElement('span');</span></p>
+
+<p class=MsoNormal><span lang=EN-GB> 
+s.style.cssText='position:absolute;left:-9999px;top:0;font-size:72px;white-space:nowrap';</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  s.innerHTML='mmmmmmmmlli';</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  s.style.fontWeight=w;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  s.style.fontFamily='monospace';</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  document.body.appendChild(s);</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var base=s.offsetWidth;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB> 
+s.style.fontFamily=&quot;'&quot;+fam+&quot;', monospace&quot;;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var w2=s.offsetWidth;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  document.body.removeChild(s);</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  return w2!==base;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>function runTest(){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var rows=[];</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var storageOK=true;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  try{ localStorage.setItem('t','1');
+localStorage.removeItem('t'); }catch(e){ storageOK=false; }</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  rows.push('Storage:
+'+(storageOK?'OK':'FAIL'));</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var
+fonts=[['Inter',400],['Inter',500],['Inter',600],['Geist',400],['Geist',500],['Geist',600],['Roboto',300],['Roboto',400],['Roboto',500]];</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  for(var f=0;f&lt;fonts.length;f++){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    rows.push(fonts[f][0]+'
+'+fonts[f][1]+': '+(fontLoaded(fonts[f][0],fonts[f][1])?'OK':'FAIL'));</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  }</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  testBox.innerHTML='Checking photos...';</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  testBox.style.display='block';</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  var pending=8, bad=[];</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  function finish(){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    if(--pending&gt;0) return;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    var photoLine=bad.length?('Photos: FAIL
+('+bad.join(', ')+')'):'Photos: all 8 OK';</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>   
+testBox.innerHTML=rows.join('&lt;br&gt;')+'&lt;br&gt;'+photoLine+'&lt;br&gt;&lt;br&gt;Tap
+to close';</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  }</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  for(var n=1;n&lt;=8;n++){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    (function(k){</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>      var im=new Image();</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>      im.onload=finish;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>      im.onerror=function(){
+bad.push('Photo'+k+'.jpg'); finish(); };</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>      im.src='Photo'+k+'.jpg';</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>    })(n);</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>  }</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>}</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>update();</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>setInterval(update,1000);</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;/script&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;/body&gt;</span></p>
+
+<p class=MsoNormal><span lang=EN-GB>&lt;/html&gt;</span></p>
+
+</div>
+
+</body>
+
+</html>
